@@ -54,7 +54,7 @@ typedef enum {
 class Board
 {
 public:
-    Board();
+    Board(Dictionary dictionary, Cell cells[BOARD_COLS_AND_ROWS][BOARD_COLS_AND_ROWS], const string& fitxerConfig);
     ~Board();
      
     PositionResult setTile(Tile &tile, const BoardPosition& boardPos);

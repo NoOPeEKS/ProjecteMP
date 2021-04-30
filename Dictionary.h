@@ -22,7 +22,13 @@ public:
 
     void setLanguage(Language language);
     Language getCurrentLanguage() { return m_currentLanguage; }
-    bool check(const string& word);
+    void setLanguagesPath(string languagesPath[3]) {
+        for (int i = 0; i < 3; i++)
+        {
+            m_languagesPath[i] = languagesPath[i];
+        }
+    }
+    bool checkWord(const string& word);
 
 private:
 	vector<string> m_words;
