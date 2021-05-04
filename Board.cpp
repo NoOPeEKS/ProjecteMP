@@ -78,10 +78,30 @@ PositionResult Board::setTile(Tile& tile, const BoardPosition& boardPos)
 
 CurrentWordResult Board::checkCurrentWord(int& points)
 {
-	//Check if vertical or horizontal positive
+        int wordColumns[7]
+        int wordRows[7]
+    
+        //Check if vertical or horizontal positive
 	for (int i = 0; i < m_nFitxesJugades; i++)
 	{
-
+                wordColumns[i] = m_fitxesTornActual[i].getCol();
+                wordRows[i] = m_fitxesTornActual[i].getRow();
 	}
+	bool horitzontal = true, vertical = true;
+	for (int i = 1; i < m_nFitxesJugades; i++)
+	{
+                if (wordColumns[i] != wordColumns[0])
+                        vertical = false;
+        }
+        for (int i = 1; i < m_nFitxesJugades; i++)
+	{
+                if (wordRows[i] != wordRows[0])
+                        horitzontal = false;
+        }
+        if (horitzontal == false && vertical == false)
+                return INVALID_NOT_ALIGNED;
+        
+        
+        //hem de trobar màxim i mínim fila o columa per mirar que la difereǹcia entre mínim i màxim sigui nFitxesJugades
 }
 
