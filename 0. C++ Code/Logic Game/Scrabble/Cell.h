@@ -29,7 +29,7 @@ public:
         m_empty = empty;
         m_tilePlayed = tilePlayed;
     }
-    ~Cell();
+    
 
     ScoreEffect getScoreEffect() { return m_scoreEffect; }
     Tile getTile() { return m_tile; }
