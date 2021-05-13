@@ -10,6 +10,7 @@
 #include "Scrabble.h"
 #include <stdio.h>
 #include <string>
+#include <vector>
 
 
 #include "Cell.h"
@@ -54,8 +55,7 @@ typedef enum {
 class Board
 {
 public:
-    Board(Dictionary dictionary, Cell cells[BOARD_COLS_AND_ROWS][BOARD_COLS_AND_ROWS], const string& fitxerConfig);
-     
+    Board();
     PositionResult setTile(Tile &tile, const BoardPosition& boardPos);
     CurrentWordResult checkCurrentWord(int& points);
     void sendCurrentWordToBoard();
@@ -65,11 +65,6 @@ public:
 private:
     Cell m_cells[BOARD_COLS_AND_ROWS][BOARD_COLS_AND_ROWS];
     Dictionary m_dictionary;
-    string m_currentWord;
-    int m_torn;
-    Cell m_fitxesTornActual[7];
-    int m_nFitxesJugades;
-    
 };
 
 #endif /* Board_hpp */

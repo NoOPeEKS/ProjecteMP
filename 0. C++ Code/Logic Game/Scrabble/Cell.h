@@ -21,29 +21,20 @@ typedef enum {
 class Cell
 {
 public:
-    Cell();
-    Cell(ScoreEffect effect, Tile tile, bool empty, bool tilePlayed)
-    {
-        m_scoreEffect = effect;
-        m_tile = tile;
-        m_empty = empty;
-        m_tilePlayed = tilePlayed;
-    }
-    
-
-    ScoreEffect getScoreEffect() { return m_scoreEffect; }
-    Tile getTile() { return m_tile; }
-    bool getEmpty() { return m_empty; }
-    bool getTilePlayed() { return m_tilePlayed; }
-    void setScoreEffect(ScoreEffect scoreEffect) { m_scoreEffect = scoreEffect; }
+    Cell() { m_empty = true; m_tilePlayed = false; m_scoreEffect = NO_EFFECT; m_tile.setLetter('?'); m_tile.setScore(-1); }
+    ScoreEffect getScoreEffect() const { return m_scoreEffect; }
+    Tile getTile() const { return m_tile; }
+    bool getEmpty() const { return m_empty; }
+    bool getTilePlayed() const { return m_tilePlayed; }
+    void setScoreEffect(const ScoreEffect& scoreEffect) { m_scoreEffect = scoreEffect; }
     void setTile(Tile tile) { m_tile = tile; }
-    void setEmpty(bool empty) { m_empty = empty; }
-    void setTilePlayed(bool tilePlayed) { m_tilePlayed; }
+    void setEmpty(const bool& empty) { m_empty = empty; }
+    void setTilePlayed(const bool& tilePlayed) { m_tilePlayed = tilePlayed; }
 
 private:
     ScoreEffect m_scoreEffect;
     Tile m_tile;
-    bool m_empty;
+    bool m_empty; // si està empty, està a true
     bool m_tilePlayed;
 };
 
